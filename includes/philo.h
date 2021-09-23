@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:45:35 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/23 14:55:57 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/23 15:26:55 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ typedef struct s_data
 	time_t		time_sleep;
 	size_t		nbr_eat;
 }				t_data;
+
+/*
+** PHILOSOPHERS.C
+*/
+void	*philo_lifestyle(void *barcode);
+
+/*
+** THREADS.C
+*/
+void	create_philo(t_data *data);
 
 /*
 ** DEBUG.C

@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:46:23 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/23 14:59:02 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/23 15:25:34 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	main(int argc, char **argv)
 	ft_memset(data, '\0', sizeof(t_data));
 	init_args(&data, argc, argv);
 	print_data(*data);
+	create_philo(data);
 	return (EXIT_SUCCESS);
 }
