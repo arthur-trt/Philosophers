@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:34:18 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 19:09:59 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:49:04 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ void	insta_post(t_philo phil, t_state state)
 		printf("%ld %zu is thinking\n", chrono_rolex(), phil.barcode);
 	else if (state == DEAD)
 	{
-		phil.data->end_zion = true;
 		printf("%ld %zu has died\n", chrono_rolex(), phil.barcode);
+		return ;
+	}
+	else if (state == EAT_END)
+	{
+		printf("All philos eaten %zd times\n", phil.data->nbr_eat);
 		return ;
 	}
 	pthread_mutex_unlock(&(phil.data->aff));

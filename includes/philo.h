@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:45:35 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 19:39:46 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:46:41 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ struct s_philo
 	size_t		barcode;
 	ssize_t		nbr_eat;
 	time_t		last_eat;
+	bool		full_stomach;
 	t_data		*data;
 	pthread_t	thread;
 };
@@ -52,6 +53,7 @@ enum e_state {
 	EAT,
 	THINK,
 	DEAD,
+	EAT_END,
 };
 
 /*

@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:22:56 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 19:40:37 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:49:29 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ void	*white_rabbit_matix(t_data *data)
 	return (NULL);
 }
 
+static bool	all_full(t_data *data)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		if (data->philo[i].nbr_eat < data->nbr_eat)
+			return (false);
+		i++;
+	}
+	return (true);
+
+}
+
 void	*god(t_data *data)
 {
 	size_t	i;
@@ -36,13 +51,14 @@ void	*god(t_data *data)
 			insta_post(data->philo[i], DEAD);
 			return (white_rabbit_matix(data));
 		}
-		if (data->philo[i].nbr_eat >= data->nbr_eat)
-		{
-			pthread_detach(data->philo[i].thread);
-		}
 		i++;
 		if (i == data->nbr_philo)
 			i = 0;
+		if (all_full(data))
+		{
+			insta_post(data->philo[i], EAT_END);
+			return (white_rabbit_matix(data));
+		}
 	}
 	return (NULL);
 }
