@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:46:23 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/23 15:25:34 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:30:20 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ static bool	check_args(int argc, char **argv)
 
 static void	init_args(t_data **data, int argc, char **argv)
 {
+	(*data)->end_zion = false;
 	(*data)->nbr_philo = ft_atoi(argv[1]);
 	(*data)->time_die = ft_atoi(argv[2]);
 	(*data)->time_eat = ft_atoi(argv[3]);
 	(*data)->time_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		(*data)->nbr_eat = ft_atoi(argv[5]);
+	else
+		(*data)->nbr_eat = -1;
 }
 
 int	main(int argc, char **argv)
@@ -55,5 +58,6 @@ int	main(int argc, char **argv)
 	init_args(&data, argc, argv);
 	print_data(*data);
 	create_philo(data);
+	god(data);
 	return (EXIT_SUCCESS);
 }

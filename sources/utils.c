@@ -6,12 +6,19 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:14:57 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/23 14:54:03 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/27 14:05:16 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*
+**	Check if striong is only digit
+**
+**	@param s String to test
+**
+**	@return True if only digit, false otherwise
+*/
 bool	ft_isdigit(char *s)
 {
 	int	i;

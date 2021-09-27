@@ -2,12 +2,15 @@
 
 ## SOURCES ##
 
-SOURCES		+=                   		\
-		sources/debug.c             	\
-		sources/philo.c             	\
-		sources/philosophers.c      	\
-		sources/str_utils.c         	\
-		sources/threads.c           	\
-		sources/utils.c             	\
+SOURCES		+=                 		\
+		sources/affich.c          	\
+		sources/blue_pills.c      	\
+		sources/debug.c           	\
+		sources/monitor.c         	\
+		sources/philo.c           	\
+		sources/str_utils.c       	\
+		sources/threads.c         	\
+		sources/time.c            	\
+		sources/utils.c           	\
 
 
