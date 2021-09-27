@@ -31,12 +31,12 @@ OBJECTS_BONUS		:= $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES_BONUS:.$(SRCEXT
 #Flags, Libraries and Includes
 cflags.release		:= -Wall -Werror -Wextra
 cflags.valgrind		:= -Wall -Werror -Wextra -DDEBUG -ggdb
-cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -ggdb -fsanitize=address -fno-omit-frame-pointer
+cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -ggdb -fsanitize=thread -fno-omit-frame-pointer
 CFLAGS			:= $(cflags.$(BUILD))
 
 lib.release		:= -lpthread
 
-lib.debug		:= $(lib.release) -fsanitize=address -fno-omit-frame-pointer
+lib.debug		:= $(lib.release) -fsanitize=thread -fno-omit-frame-pointer
 LIB			:= $(lib.$(BUILD))
 
 INC			:= -I$(INCDIR) -I/usr/local/include

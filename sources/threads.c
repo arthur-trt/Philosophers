@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:18:42 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 19:42:56 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/27 22:11:47 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_philo(t_data **data)
 		(*data)->philo[i].last_eat = 0;
 		(*data)->philo[i].full_stomach = false;
 		pthread_mutex_init(&((*data)->fork[i]), NULL);
+		pthread_mutex_init(&((*data)->philo[i].write), NULL);
 		i++;
 	}
 }
