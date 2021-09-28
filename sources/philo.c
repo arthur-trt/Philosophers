@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:46:23 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 19:30:20 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 10:09:37 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static bool	check_args(int argc, char **argv)
 
 static void	init_args(t_data **data, int argc, char **argv)
 {
-	(*data)->end_zion = false;
 	(*data)->nbr_philo = ft_atoi(argv[1]);
 	(*data)->time_die = ft_atoi(argv[2]);
 	(*data)->time_eat = ft_atoi(argv[3]);

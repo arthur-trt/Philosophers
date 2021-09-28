@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:19:49 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 22:42:14 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 10:55:35 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,29 @@ void	philo_pole_emploi(t_philo *philo)
 	insta_post(*philo, THINK);
 }
 
-void	philo_insta_food_blog(t_philo *philo)
+static void	chose_fork(t_philo *p, pthread_mutex_t **f1, pthread_mutex_t **f2)
 {
-	pthread_mutex_t	*left;
-	pthread_mutex_t	*right;
-
-	if (philo->barcode % 2 == 0)
+	if (p->barcode % 2 == 0)
 	{
-		left = &(philo->data->fork[philo->barcode - 1]);
-		right = &(philo->data->fork[(philo->barcode) % philo->data->nbr_philo]);
+		*f1 = &(p->data->fork[p->barcode - 1]);
+		*f2 = &(p->data->fork[(p->barcode) % p->data->nbr_philo]);
 	}
 	else
 	{
-		right = &(philo->data->fork[philo->barcode - 1]);
-		left = &(philo->data->fork[(philo->barcode) % philo->data->nbr_philo]);
+		*f2 = &(p->data->fork[p->barcode - 1]);
+		*f1 = &(p->data->fork[(p->barcode) % p->data->nbr_philo]);
 	}
-	pthread_mutex_lock(left);
+}
+
+void	philo_insta_food_blog(t_philo *philo)
+{
+	pthread_mutex_t	*f1;
+	pthread_mutex_t	*f2;
+
+	chose_fork(philo, &f1, &f2);
+	pthread_mutex_lock(f1);
 	insta_post(*philo, FORK);
-	pthread_mutex_lock(right);
+	pthread_mutex_lock(f2);
 	insta_post(*philo, FORK);
 	pthread_mutex_lock(&(philo->write));
 	philo->last_eat = chrono_rolex();
@@ -46,8 +51,8 @@ void	philo_insta_food_blog(t_philo *philo)
 	dodo(philo->data->time_eat);
 	if (philo->nbr_eat == philo->data->nbr_eat)
 		philo->full_stomach = true;
-	pthread_mutex_unlock(right);
-	pthread_mutex_unlock(left);
+	pthread_mutex_unlock(f2);
+	pthread_mutex_unlock(f1);
 }
 
 void	*philo_lifestyle(void *philo)
