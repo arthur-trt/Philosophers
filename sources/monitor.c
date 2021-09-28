@@ -6,21 +6,27 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:22:56 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 22:21:05 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 08:52:19 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*white_rabbit_matix(t_data *data)
+void	*mr_smith_die(t_data *data)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < data->nbr_philo)
 	{
-		pthread_detach(data->philo[i++].thread);
+		pthread_mutex_destroy(&(data->philo[i].write));
+		pthread_mutex_destroy(&(data->fork[i]));
+		pthread_detach(data->philo[i].thread);
+		i++;
 	}
+	pthread_mutex_destroy(&(data->aff));
+	free(data->philo);
+	free(data->fork);
 	return (NULL);
 }
 
@@ -57,7 +63,7 @@ void	*god(t_data *data)
 		if (chrono_rolex() - (last_eat) > data->time_die)
 		{
 			insta_post(data->philo[i], DEAD);
-			return (white_rabbit_matix(data));
+			return (mr_smith_die(data));
 		}
 		if (++i == data->nbr_philo)
 		{
@@ -65,7 +71,7 @@ void	*god(t_data *data)
 			if (data->nbr_eat != -1 && all_full(data))
 			{
 				insta_post(data->philo[i], EAT_END);
-				return (white_rabbit_matix(data));
+				return (mr_smith_die(data));
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:45:35 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 21:24:19 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 08:49:06 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	*philo_lifestyle(void *barcode);
 
 void	create_philo(t_data *data);
 void	*god(t_data *data);
-void	*white_rabbit_matix(t_data *data);
+void	*mr_smith_die(t_data *data);
 
 /*
 ** DEBUG.C
