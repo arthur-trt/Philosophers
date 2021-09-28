@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:34:18 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 19:49:04 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:41:55 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@
 void	insta_post(t_philo phil, t_state state)
 {
 	pthread_mutex_lock(&(phil.data->aff));
-	if (state == FORK)
+	if (phil.data->dead == false && state == FORK)
 		printf("%ld %zu has taken a fork\n", chrono_rolex(), phil.barcode);
-	else if (state == SLEEP)
+	else if (phil.data->dead == false && state == SLEEP)
 		printf("%ld %zu is sleeping\n", chrono_rolex(), phil.barcode);
-	else if (state == EAT)
+	else if (phil.data->dead == false && state == EAT)
 		printf("%ld %zu is eating\n", chrono_rolex(), phil.barcode);
-	else if (state == THINK)
+	else if (phil.data->dead == false && state == THINK)
 		printf("%ld %zu is thinking\n", chrono_rolex(), phil.barcode);
-	else if (state == DEAD)
+	else if (phil.data->dead == false && state == DEAD)
 	{
+		phil.data->dead = true;
 		printf("%ld %zu has died\n", chrono_rolex(), phil.barcode);
-		return ;
 	}
-	else if (state == EAT_END)
+	else if (phil.data->dead == false && state == EAT_END)
 	{
+		phil.data->dead = true;
 		printf("All philos eaten %zd times\n", phil.data->nbr_eat);
-		return ;
 	}
 	pthread_mutex_unlock(&(phil.data->aff));
 }

@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:22:56 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 10:29:34 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:54:53 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,19 @@ void	*mr_smith_die(t_data *data)
 	size_t	i;
 
 	i = 0;
+	dodo(data->time_eat);
 	while (i < data->nbr_philo)
 	{
-		pthread_mutex_unlock(&(data->philo[i].write));
-		pthread_mutex_destroy(&(data->philo[i].write));
-		pthread_mutex_unlock(&(data->fork[i]));
-		pthread_mutex_destroy(&(data->fork[i]));
-		pthread_detach(data->philo[i].thread);
+		pthread_join(data->philo[i].thread, NULL);
 		i++;
 	}
-	dodo(100);
-//	pthread_mutex_unlock(&(data->aff));
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		pthread_mutex_destroy(&(data->philo[i].write));
+		pthread_mutex_destroy(&(data->fork[i]));
+		i++;
+	}
 	pthread_mutex_destroy(&(data->aff));
 	free(data->philo);
 	free(data->fork);

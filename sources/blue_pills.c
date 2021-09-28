@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:19:49 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 10:55:35 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:42:27 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	*philo_lifestyle(void *philo)
 	lfi = (t_philo *)philo;
 	if (lfi->barcode % 2 == 0)
 		dodo(lfi->data->time_die / 10);
-	while (1)
+	while (lfi->data->dead == false)
 	{
 		if (lfi->full_stomach == false)
 		{

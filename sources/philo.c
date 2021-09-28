@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:46:23 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 10:09:37 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:46:46 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv) == false)
 		return (EXIT_FAILURE);
-	data = malloc(sizeof(t_data));
+	data = (t_data *)malloc(sizeof(t_data));
 	ft_memset(data, '\0', sizeof(t_data));
 	init_args(&data, argc, argv);
 	print_data(*data);

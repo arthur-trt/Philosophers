@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:45:35 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 10:08:10 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:38:18 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ struct s_data
 	time_t			time_eat;
 	time_t			time_sleep;
 	ssize_t			nbr_eat;
+	bool			dead;
 	t_philo			*philo;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	aff;

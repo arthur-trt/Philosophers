@@ -35,8 +35,8 @@ cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -ggdb -fsanitize=thread -fno-omit
 CFLAGS			:= $(cflags.$(BUILD))
 
 lib.release		:= -lpthread
-
 lib.debug		:= $(lib.release) -fsanitize=thread -fno-omit-frame-pointer
+lib.valgrind		:= $(lib.release)
 LIB			:= $(lib.$(BUILD))
 
 INC			:= -I$(INCDIR) -I/usr/local/include

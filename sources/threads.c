@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:18:42 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 22:11:47 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:41:19 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_philo(t_data **data)
 	(*data)->fork = malloc(sizeof(pthread_mutex_t) * ((*data)->nbr_philo));
 	if ((*data)->philo == NULL || (*data)->fork == NULL)
 		return ;
+	(*data)->dead = false;
 	i = 0;
 	ft_memset((*data)->philo, '\0', sizeof(t_philo) * ((*data)->nbr_philo));
 	while (i < (*data)->nbr_philo)
