@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:19:49 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 11:42:27 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/29 10:29:03 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	philo_insta_food_blog(t_philo *philo)
 	pthread_mutex_lock(&(philo->write));
 	philo->last_eat = chrono_rolex();
 	philo->nbr_eat++;
+	if (philo->nbr_eat == philo->data->nbr_eat)
+		philo->full_stomach = true;
 	pthread_mutex_unlock(&(philo->write));
 	insta_post(*philo, EAT);
 	dodo(philo->data->time_eat);
-	if (philo->nbr_eat == philo->data->nbr_eat)
-		philo->full_stomach = true;
 	pthread_mutex_unlock(f2);
 	pthread_mutex_unlock(f1);
 }
@@ -58,17 +58,22 @@ void	philo_insta_food_blog(t_philo *philo)
 void	*philo_lifestyle(void *philo)
 {
 	t_philo	*lfi;
+	bool	dead;
 
 	lfi = (t_philo *)philo;
 	if (lfi->barcode % 2 == 0)
 		dodo(lfi->data->time_die / 10);
-	while (lfi->data->dead == false)
+	dead = false;
+	while (dead == false)
 	{
 		if (lfi->full_stomach == false)
 		{
 			philo_insta_food_blog(lfi);
 			philo_pole_emploi(lfi);
 		}
+		pthread_mutex_lock(&(lfi->data->aff));
+		dead = lfi->data->dead;
+		pthread_mutex_unlock(&(lfi->data->aff));
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:22:56 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 11:54:53 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/29 10:30:30 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	*mr_smith_die(t_data *data)
 	size_t	i;
 
 	i = 0;
-	dodo(data->time_eat);
 	while (i < data->nbr_philo)
 	{
 		pthread_join(data->philo[i].thread, NULL);
@@ -33,6 +32,7 @@ void	*mr_smith_die(t_data *data)
 	pthread_mutex_destroy(&(data->aff));
 	free(data->philo);
 	free(data->fork);
+	free(data);
 	return (NULL);
 }
 

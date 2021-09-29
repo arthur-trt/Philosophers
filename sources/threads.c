@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:18:42 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 11:41:19 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/09/29 10:30:15 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	create_philo(t_data *data)
 
 	i = 0;
 	init_philo(&data);
-	chrono_rolex();
 	pthread_mutex_init(&(data->aff), NULL);
 	while (i < data->nbr_philo)
 	{
