@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:35:13 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 08:46:28 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/10/13 10:00:23 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	dodo(time_t sleep)
 		usleep(3);
 }
 
-time_t	chrono_rolex()
+time_t	chrono_rolex(void)
 {
 	static time_t	start_time = 0;
 

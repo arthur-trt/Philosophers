@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:14:57 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/27 14:05:16 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/10/13 10:00:14 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool	ft_isdigit(char *s)
 */
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char *ptr;
+	unsigned char	*ptr;
 
 	ptr = b;
 	while (len-- > 0)

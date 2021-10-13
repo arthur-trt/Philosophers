@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:45:35 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 11:38:18 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/10/13 10:00:38 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	print_data(t_data data);
 
 time_t	get_time(void);
 void	dodo(time_t sleep);
-time_t	chrono_rolex();
+time_t	chrono_rolex(void);
 
 /*
 ** AFFICH.C
