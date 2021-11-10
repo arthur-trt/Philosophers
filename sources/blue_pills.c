@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:19:49 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/29 10:29:03 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/10 10:17:21 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@ void	philo_insta_food_blog(t_philo *philo)
 	dodo(philo->data->time_eat);
 	pthread_mutex_unlock(f2);
 	pthread_mutex_unlock(f1);
+}
+
+void	*philo_hello_darkness(void *philo)
+{
+	t_philo	*lfi;
+
+	lfi = (t_philo *)philo;
+	insta_post(*lfi, FORK);
+	dodo(lfi->data->time_die);
+	insta_post(*lfi, DEAD);
+	return (NULL);
 }
 
 void	*philo_lifestyle(void *philo)

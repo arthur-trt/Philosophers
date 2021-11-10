@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:45:35 by atrouill          #+#    #+#             */
-/*   Updated: 2021/10/13 10:00:38 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/10 10:18:01 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ enum e_state {
 
 void	philo_pole_emploi(t_philo *philo);
 void	philo_insta_food_blog(t_philo *philo);
+void	*philo_hello_darkness(void *philo);
 void	*philo_lifestyle(void *barcode);
 
 /*

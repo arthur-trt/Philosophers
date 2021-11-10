@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:18:42 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/29 10:30:15 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/10 10:18:36 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,18 @@ void	create_philo(t_data *data)
 	i = 0;
 	init_philo(&data);
 	pthread_mutex_init(&(data->aff), NULL);
-	while (i < data->nbr_philo)
+	if (data->nbr_philo == 1)
 	{
 		pthread_create(&data->philo[i].thread, NULL,
-			&philo_lifestyle, (void *)(&data->philo[i]));
-		i++;
+			&philo_hello_darkness, (void *)(&data->philo[i]));
+	}
+	else
+	{
+		while (i < data->nbr_philo)
+		{
+			pthread_create(&data->philo[i].thread, NULL,
+				&philo_lifestyle, (void *)(&data->philo[i]));
+			i++;
+		}
 	}
 }
