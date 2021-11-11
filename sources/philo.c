@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:46:23 by atrouill          #+#    #+#             */
-/*   Updated: 2021/11/11 09:55:29 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/11 11:59:57 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ int	main(int argc, char **argv)
 	init_args(&data, argc, argv);
 	print_data(*data);
 	create_philo(data);
-	god(data);
+	if (data->nbr_philo != 1)
+		god(data);
+	else
+		mr_smith_die(data);
 	return (EXIT_SUCCESS);
 }

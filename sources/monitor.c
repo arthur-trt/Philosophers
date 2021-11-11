@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:22:56 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/29 10:30:30 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/11 11:50:35 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	*god(t_data *data)
 	size_t	i;
 
 	i = 0;
-	while (i < data->nbr_philo)
+	while (i < data->nbr_philo && data->nbr_philo != 1)
 	{
 		pthread_mutex_lock(&(data->philo[i].write));
 		last_eat = data->philo[i].last_eat;
