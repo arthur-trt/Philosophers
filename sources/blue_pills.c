@@ -6,7 +6,7 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:19:49 by atrouill          #+#    #+#             */
-/*   Updated: 2021/11/10 10:17:21 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/11 09:59:13 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	philo_insta_food_blog(t_philo *philo)
 	pthread_mutex_unlock(f1);
 }
 
+/*
+**	When there is only one Philo 
+**
+**	@param	philo	t_philo struct who contain information on philo
+*/
 void	*philo_hello_darkness(void *philo)
 {
 	t_philo	*lfi;
@@ -66,6 +71,11 @@ void	*philo_hello_darkness(void *philo)
 	return (NULL);
 }
 
+/*
+**	Simulation of Philosopher
+**
+**	@param	philo	t_philo struct who contain information on philo
+*/
 void	*philo_lifestyle(void *philo)
 {
 	t_philo	*lfi;

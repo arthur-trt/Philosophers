@@ -6,12 +6,20 @@
 /*   By: atrouill <atrouill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:46:23 by atrouill          #+#    #+#             */
-/*   Updated: 2021/09/28 11:46:46 by atrouill         ###   ########.fr       */
+/*   Updated: 2021/11/11 09:55:29 by atrouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*
+**	Check if we have the correct number of arguments and it's only number
+**
+**	@param	argc	Number of argument (given by libc)
+**	@param	**argv	Arguments (given by libc)
+**
+**	@return	True if args are correct, false otherwise
+*/
 static bool	check_args(int argc, char **argv)
 {
 	int	i;
@@ -34,6 +42,13 @@ static bool	check_args(int argc, char **argv)
 	return (true);
 }
 
+/*
+**	Convert argv to int and store them in a struct
+**
+**	@param	**data	Struct where stock arguments
+**	@param	argc	Number of argument (given by libc)
+**	@param	**argv	Arguments (given by libc)
+*/
 static void	init_args(t_data **data, int argc, char **argv)
 {
 	(*data)->nbr_philo = ft_atoi(argv[1]);
